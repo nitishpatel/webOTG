@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { signup } from "../auth/helper";
+import Menu from "../core/Menu";
+import SignUpImage from "../assets/signup.png"
 const Signup = () => {
   const [values, setValues] = useState({
     name: "",
@@ -67,8 +68,7 @@ const Signup = () => {
 }
   const signUpForm = ()=>{
       return(
-          <div className="row">
-              <div className="col-md-6 offset-sm-3 text-left">
+              <div className=" text-left">
                   <form>
                       <div className="form-group">
                           <label className="text-dark">Name</label>
@@ -85,20 +85,30 @@ const Signup = () => {
                       <button onClick={onSubmit} className="btn btn-block theme-blue text-light">Submit</button>
                   </form>
 
-              </div>
           </div>
       )
   }
 
   return (
-    <Base title="Sign Up Page" description="Create Your Account Here!!">
-        <div className="card pt-1 pb-2">
-        {successMessage()}
-        {errorMessage()}
-      {signUpForm()}
+
+        <div>
+            <Menu/>
+            <div className="container pt-4">
+                <div className="row">
+                    <div className="col-lg-6">
+                        <img src={SignUpImage} alt="Signup" className="img-fluid" style={{maxHeight:450}}/>
+                    </div>
+                    <div className="col-lg-6  align-self-center">
+                        <h3 className="text-center">Register</h3>
+                    {successMessage()}
+                        {errorMessage()}
+                    {signUpForm()}
+                    </div>
+                </div>
+            </div>
+       
         </div>
   
-    </Base>
   );
 };
 

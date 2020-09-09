@@ -1,16 +1,14 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import { colors } from "./Colors";
-
+import { renderToString } from "react-dom/server";
+import { CopyBlock, github } from "react-code-blocks";
 const NavbarOne = ({ navbarcolor }) => {
   return (
     <nav
       style={{ backgroundColor: `${navbarcolor}` }}
       className="navbar navbar-expand-lg navbar-dark"
     >
-      <a className="navbar-brand" href="#">
-        Navbar
-      </a>
+      <a className="navbar-brand">Navbar</a>
       <button
         className="navbar-toggler"
         type="button"
@@ -25,19 +23,15 @@ const NavbarOne = ({ navbarcolor }) => {
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <a className="nav-link">
               Home <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Features
-            </a>
+            <a className="nav-link">Features</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Pricing
-            </a>
+            <a className="nav-link">Pricing</a>
           </li>
           <li className="nav-item dropdown">
             <a
@@ -54,15 +48,9 @@ const NavbarOne = ({ navbarcolor }) => {
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
+              <a className="dropdown-item">Action</a>
+              <a className="dropdown-item">Another action</a>
+              <a className="dropdown-item">Something else here</a>
             </div>
           </li>
         </ul>
@@ -73,10 +61,11 @@ const NavbarOne = ({ navbarcolor }) => {
 
 const NavbarTwo = ({ navbarcolor }) => {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark fixed-top" style={{backgroundColor:`${navbarcolor}`}}>
-      <a className="navbar-brand" href="#">
-        Fixed navbar
-      </a>
+    <nav
+      className="navbar navbar-expand-lg navbar-dark "
+      style={{ backgroundColor: `${navbarcolor}` }}
+    >
+      <a className="navbar-brand">Fixed navbar</a>
       <button
         className="navbar-toggler"
         type="button"
@@ -91,92 +80,113 @@ const NavbarTwo = ({ navbarcolor }) => {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <a className="nav-link">
               Home <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Link
-            </a>
+            <a className="nav-link">Link</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled" href="#">
-              Disabled
-            </a>
+            <a className="nav-link disabled">Disabled</a>
           </li>
         </ul>
-        <form className="form-inline mt-2 mt-md-0">
-          <input
-            className="form-control mr-sm-2"
-            type="text"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
+        
       </div>
     </nav>
   );
 };
 
-const NavbarThree = ({navbarcolor}) =>{
+const NavbarThree = ({ navbarcolor }) => {
   return (
-    <nav class="navbar navbar-expand-md navbar-dark" style={{backgroundColor:navbarcolor}}>
-					
-						<a class="navbar-brand" href="#" target="_blank">webOTG</a>	
-						
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav ml-auto py-4 py-md-0">
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-									
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">Portfolio</a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">Agency</a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-									
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">Journal</a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="#">Contact</a>
-								</li>
-							</ul>
-						</div>
-						
-					</nav>	
-  )
-}
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style={{ backgroundColor: navbarcolor }}
+    >
+      <a class="navbar-brand" target="_blank">
+        webOTG
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto py-4 py-md-0">
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a class="nav-link">Portfolio</a>
+          </li>
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a class="nav-link">Agency</a>
+          </li>
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a
+              class="nav-link dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Services
+            </a>
+          </li>
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a class="nav-link">Journal</a>
+          </li>
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
 const Navbar = () => {
-  const randomColor = colors[Math.floor(Math.random() * colors.length)]
-  console.log(randomColor)
-  const getNavbar = ()=>{
-      const navArray = [<NavbarOne navbarcolor={randomColor}/>,<NavbarTwo navbarcolor={randomColor}/>,<NavbarThree navbarcolor={randomColor} />];
-      return navArray[Math.floor(Math.random() * navArray.length)];
-  }
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  const navArray = [
+    <NavbarOne navbarcolor={randomColor} />,
+    <NavbarTwo navbarcolor={randomColor} />,
+    <NavbarThree navbarcolor={randomColor} />,
+  ];
+  const navbar = navArray[Math.floor(Math.random() * navArray.length)];
+  var beautify_html = require("js-beautify").html;
+  const result = beautify_html(renderToString(navbar));
   return (
     <div>
-      {/* <NavbarOne navbarcolor={randomColor} /> */}
-      {getNavbar()}
+      <div >{navbar}</div>
+      <div className="container pt-4">
+        <div className="row">
+          <div className="col-lg-12 ">
+            <CopyBlock
+              text={result}
+              language={"jsx"}
+              showLineNumbers={true}
+              theme={github}
+              codeBlock
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
+export const getNavbar=(randomColor)=>{
+  const navArray = [
+    <NavbarOne navbarcolor={randomColor} />,
+    <NavbarTwo navbarcolor={randomColor} />,
+    <NavbarThree navbarcolor={randomColor} />,
+  ];
+  const navbar = navArray[Math.floor(Math.random() * navArray.length)];
+  return navbar;
+}
 export default Navbar;

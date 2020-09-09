@@ -25,6 +25,8 @@ Django = "==2.2.1"
 django-cors-headers = "*"
 djangorestframework = "*"
 pylint-django = "*"
+jsonfield = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.8"

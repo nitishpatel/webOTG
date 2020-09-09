@@ -8,7 +8,11 @@ import Dashboard from "./user/Dashboard";
 import Signin from "./user/SignIn";
 import Components from "./components/Components";
 import Navbar from "./components/Navbar";
+import LandingPage from "./components/LandingPage";
 
+import CreateSite from "./website/CreateSite";
+import NotFound from "./components/NotFound";
+import Site from './website/Site'
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -17,9 +21,19 @@ const Routes = () => {
         <Route path="/signin" exact component={Signin} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/components" exact component={Components} />
+        <Route path="/site" exact component={Site} />
         <Route path="/components/navbar" exact component={Navbar} />
+        <Route path="/components/landing" exact component={LandingPage} />
+        <Route path="/notfound" exact component={NotFound} />
 
         <PrivateRoutes path="/user/dashboard" exact component={Dashboard} />
+        <PrivateRoutes path="/user/website/create" exact component={CreateSite} />
+
+
+
+
+        <Route path="/:id" exact component={Site} />
+
       </Switch>
     </BrowserRouter>
   );

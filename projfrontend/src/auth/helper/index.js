@@ -16,6 +16,7 @@ export const signup = user=>{
 
 export const signin = user => {
     const formData = new FormData();
+
     for(const name in user){
         formData.append(name,user[name])
     }

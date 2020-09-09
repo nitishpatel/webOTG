@@ -1,5 +1,6 @@
 import React from "react";
 import Menu from "./Menu";
+import Footer from "./Footer";
 
 const Base = ({ title = "My Title", description = "My Description" , children }) => {
   return (
@@ -12,6 +13,8 @@ const Base = ({ title = "My Title", description = "My Description" , children })
       </div>
       {children}
     </div>
+    <Footer/>
+
     </div>
   );
 };

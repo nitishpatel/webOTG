@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import  Base  from "../core/Base";
+
 import { Link, Redirect } from 'react-router-dom';
 import { signin, authenticate, isAuthenticated } from '../auth/helper';
+import Menu from '../core/Menu';
+import SignInImage from "../assets/signin.png"
 const Signin= ()=> {
     const [values,setValues] = useState({
         email:"",
@@ -90,34 +92,44 @@ const Signin= ()=> {
   }
     const signInForm = ()=>{
         return(
-            <div className="row">
-                <div className="col-md-6 offset-sm-3 text-left">
+                <div className=" text-left">
                     <form>
                        
                         <div className="form-group">
-                            <label className="text-dark">Email</label>
+                            <label >Email</label>
                             <input type="email" className="form-control" value={email} onChange={handleChange("email")} />
                         </div>
                         <div className="form-group">
-                            <label className="text-dark">Password</label>
+                            <label >Password</label>
                             <input type="password" className="form-control" value={password} onChange={handleChange("password")} />
                         </div>
                         <button onClick={onSubmit} className="btn btn-block theme-blue text-light">Submit</button>
                     </form>
   
-                </div>
             </div>
         )
     }
   
     return (
-        <Base title="SignIn Page" description="Sign in here">
-            {loadingMessage()}
-            {successMessage()}
-            {errorMessage()}
-            {signInForm()}
+      <div>
+        <Menu/>
+        <div className="container-fluid pt-4">
+          <div className="row">
+            <div className="col-lg-6">
+              <img src={SignInImage} alt="Signin" style={{maxHeight:450}} className="img-fluid" />
+            </div>
+            <div className="col-lg-6  align-self-center">
+              <h2 className="text-center">Login</h2>
+              {loadingMessage()}
+              {successMessage()}
+              {errorMessage()}
+              {signInForm()}
+            </div>
+          </div>
+        </div>
+            
             {performRedirect()}
-        </Base>
+      </div>
     )
 }
 
