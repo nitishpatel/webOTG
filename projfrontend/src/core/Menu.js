@@ -2,13 +2,18 @@ import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth/helper';
 const currentTab = (history, path) => {
+  document.body.style.background = "#ffffff";
+
     if (history.location.pathname === path) {
         return { color: "#8E2DE2" }
     } else {
         return { color: "#000000" }
     }
+
 }
+
 const Menu = ({ history }) => (
+
     <nav className="navbar  navbar-expand-lg navbar-light ">
         <h5 className="navbar-brand">webOTG</h5>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +54,7 @@ const Menu = ({ history }) => (
                         </a>
                     </li>
                 )}
+                
 
             </ul>
         </div>

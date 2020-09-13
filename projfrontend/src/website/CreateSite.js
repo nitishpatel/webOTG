@@ -16,7 +16,7 @@ const CreateSite = () => {
     preload();
   }, []);
   const { websiteUrl, categoryid,error,success } = state;
-  const {token,user} = isAuthenticated();
+  const {user} = isAuthenticated();
   const preload = () => {
     getAllCategories().then((data) => {
       console.log("CATEGORIES", data);

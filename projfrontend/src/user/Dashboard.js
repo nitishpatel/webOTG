@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from 'react'
 import Base from '../core/Base'
-import profile from '../profile.png'
 import { isAuthenticated } from '../auth/helper'
 import { Link } from 'react-router-dom'
 import { getUserWebsite } from './helper/userapicalls'
@@ -25,10 +24,10 @@ const Dashboard = () => {
     const userphoto = ()=>{
         return (
             <div >
-                <div class="d-flex justify-content-center circular h-100">
-			<div class="image_outer_container">
-				<div class="green_icon"></div>
-				<div class="image_inner_container" >
+                <div className="d-flex justify-content-center circular h-100">
+			<div className="image_outer_container">
+				<div className="green_icon"></div>
+				<div className="image_inner_container" >
 					{/* <img maxWidth="200" maxHeight="200" src={profile} /> */}
 					<img  src="https://thumbs.dreamstime.com/b/solid-purple-gradient-user-icon-web-mobile-design-interface-ui-ux-developer-app-137467998.jpg" />
 				</div>
@@ -48,8 +47,8 @@ const Dashboard = () => {
                         <div className="card mt-2 mb-1" key={index}>
                             <h3 className="card-header">{web.url}</h3>
                             <div className="card-body">
-                                <Link to={`/${web.url}`}className="text-white btn ml-2 mr-2"style={{backgroundColor:"#6a5acd"}}>View Site</Link>
-                                <button className=" btn ml-2 mr-2 text-white" style={{backgroundColor:"#9966cc"}}>Update Site</button>
+                                <Link to={`/${web.url}`} className="text-white btn ml-2 mr-2"style={{backgroundColor:"#6a5acd"}}>View Site</Link>
+                                <Link to={`/update/${web.url}`} className=" btn ml-2 mr-2 text-white" style={{backgroundColor:"#9966cc"}}>Update Site</Link>
                                 <button className="btn-danger btn ml-2 mr-2" style={{backgroundColor:"#5B3B8C"}}>Delete Site</button>
 
                             </div>

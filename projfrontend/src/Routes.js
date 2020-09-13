@@ -13,6 +13,8 @@ import LandingPage from "./components/LandingPage";
 import CreateSite from "./website/CreateSite";
 import NotFound from "./components/NotFound";
 import Site from './website/Site'
+import UpdateSite from './website/UpdateSite'
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -30,6 +32,7 @@ const Routes = () => {
         <PrivateRoutes path="/user/website/create" exact component={CreateSite} />
 
 
+        <PrivateRoutes path="/update/:id" exact component={UpdateSite} />
 
 
         <Route path="/:id" exact component={Site} />

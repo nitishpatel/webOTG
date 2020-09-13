@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "./Menu";
-import Landing from '../assets/landing.png'
+import Landing from '../assets/landing.json'
+import Lottie from 'react-lottie';
 const Home = () => {
   const whyYouNeedAWebsite = () =>{
     return(
@@ -13,6 +14,14 @@ const Home = () => {
       </div>
     )
   }
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Landing,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
   return (
       
       <div>
@@ -22,10 +31,11 @@ const Home = () => {
             <div className="col-lg-6  text-center align-self-center ">
               <h1>Get your Website up and running in 30 secs</h1>
             </div>
-            <div className="col-lg-6  pt-2 text-center ">
-              <img src={Landing} alt="" className="img-fluid" style={{maxHeight:450}}/>
-              {/* <h2 >Websites - On The Go</h2> */}
-            </div>
+            <Lottie 
+	    options={defaultOptions}
+        height={450}
+        width={450}
+      />
           </div>
           
         </div>

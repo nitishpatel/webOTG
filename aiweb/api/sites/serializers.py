@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Website
-class WebsiteSerializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model = Website
-		fields = ('url','user','category','title','subtitle','navbar','landing','social')
+class WebsiteSerializer(serializers.ModelSerializer):
+    landing = serializers.JSONField()
+    class Meta:
+        model = Website
+        fields = ('id','url','user','category','color','title','subtitle','navbar','landing','social')

@@ -1,6 +1,5 @@
-import React  from "react";
+import React from "react";
 import "../style.css";
-import {  images } from "./Images";
 const Page1 = ({ title, subtitle, image, color }) => {
   return (
     <div
@@ -15,13 +14,12 @@ const Page1 = ({ title, subtitle, image, color }) => {
             <p className="lead">{subtitle}</p>
 
             <p className="lead">
-              <a
+              <button
                 className="btn  btn-lg text-light"
-                role="button"
                 style={{ backgroundColor: `${color}` }}
               >
                 Explore
-              </a>
+              </button>
             </p>
           </div>
         </div>
@@ -43,8 +41,8 @@ const Page2 = ({ title, subtitle, image, color }) => {
         <button
           type="button"
           className="btn btn-lg m-t-1 text-light"
-					data-toggle="modal"
-					style={{backgroundColor:color}}
+          data-toggle="modal"
+          style={{ backgroundColor: color }}
           data-target="#signup_form_modal"
         >
           Explore
@@ -60,38 +58,48 @@ const Page2 = ({ title, subtitle, image, color }) => {
     </header>
   );
 };
-const LandingPage = ({ color }) => {
-  const image =  images[Math.floor(Math.random() * images.length)];
+
+const Page3 = ({ title, subtitle, image, about }) => {
+
+  document.body.style.background = "linear-gradient(to right, #8e2de2, #4a00e0)";
+
   return (
-    <div>
-      <Page2
-        title="My Title"
-        subtitle="This is subtitile"
-        image={image}
-        color={color}
-      />
+    <div className="container">
+      <div className="row">
+        <div className="col-12 justify-content-center align-items-center text-center ">
+          <div className="pt-4 pb-2">
+            <img
+            src={`${image}`}
+            className="circular--portrait"
+            alt="portfolio pic"
+            style={{ borderColor:"#ffffff",borderRadius:"50%",borderStyle:"solid"}}
+          />
+          </div>
+          <h1 className="name text-light">{title}</h1>
+          <h3>{subtitle}</h3>
+          <p className="text-light h6 pt-3">
+            {about}
+          </p>
+          {/* {socialMedia()} */}
+          {/* <p className="text-light h6">Made With ♥</p> */}
+        </div>
+      </div>
     </div>
   );
 };
+const LandingPage = ({ color }) => {
+  return <div>{getLandingPage()}</div>;
+};
 
-export const getLandingPage = (color) => {
-  const image =  images[Math.floor(Math.random() * images.length)];
+export const getLandingPage = (id, color, title, subtitle, image,about) => {
+  // const image =  images[Math.floor(Math.random() * images.length)];
 
   const pageArray = [
-    <Page1
-      title="WebOTG"
-      subtitle="Makes Works Easy"
-      image={image}
-      color={color}
-    />,
-    <Page2
-      title="webOTG"
-      subtitle="Web: On The Go"
-      image={image}
-      color={color}
-    />,
+    <Page1 title={title} subtitle={subtitle} image={image} color={color} />,
+    <Page2 title={title} subtitle={subtitle} image={image} color={color} />,
+    <Page3 title={title} subtitle={subtitle} image={image} color={color} about={about}/>,
   ];
-  const page = pageArray[Math.floor(Math.random() * pageArray.length)];
+  const page = pageArray[parseInt(id)];
   return page;
 };
 

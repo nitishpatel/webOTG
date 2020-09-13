@@ -97,65 +97,12 @@ const NavbarTwo = ({ navbarcolor }) => {
   );
 };
 
-const NavbarThree = ({ navbarcolor }) => {
-  return (
-    <nav
-      class="navbar navbar-expand-lg navbar-dark"
-      style={{ backgroundColor: navbarcolor }}
-    >
-      <a class="navbar-brand" target="_blank">
-        webOTG
-      </a>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto py-4 py-md-0">
-          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-            <a class="nav-link">Portfolio</a>
-          </li>
-          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-            <a class="nav-link">Agency</a>
-          </li>
-          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-            <a
-              class="nav-link dropdown-toggle"
-              data-toggle="dropdown"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Services
-            </a>
-          </li>
-          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-            <a class="nav-link">Journal</a>
-          </li>
-          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-            <a class="nav-link">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
-};
 
 const Navbar = () => {
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   const navArray = [
     <NavbarOne navbarcolor={randomColor} />,
     <NavbarTwo navbarcolor={randomColor} />,
-    <NavbarThree navbarcolor={randomColor} />,
   ];
   const navbar = navArray[Math.floor(Math.random() * navArray.length)];
   var beautify_html = require("js-beautify").html;
@@ -180,13 +127,12 @@ const Navbar = () => {
   );
 };
 
-export const getNavbar=(randomColor)=>{
+export const getNavbar=(id,randomColor)=>{
   const navArray = [
     <NavbarOne navbarcolor={randomColor} />,
     <NavbarTwo navbarcolor={randomColor} />,
-    <NavbarThree navbarcolor={randomColor} />,
   ];
-  const navbar = navArray[Math.floor(Math.random() * navArray.length)];
+  const navbar = navArray[parseInt(id)];
   return navbar;
 }
 export default Navbar;

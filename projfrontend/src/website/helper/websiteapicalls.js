@@ -36,3 +36,20 @@ export const createNewSite = data =>{
     .then(data=>data.json())
     .catch(err=>console.log(err))
 }
+
+export const updateSite = (token,site,siteid) =>{
+   
+    return fetch(`${API}sites/${siteid}/`,{
+        method:"PUT",
+        headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json",
+            Authorization: `Token ${token}`
+            
+        },
+        body:JSON.stringify(site)
+        
+    })
+    .then(data=>data.json())
+    .catch(err=>console.log(err))
+}

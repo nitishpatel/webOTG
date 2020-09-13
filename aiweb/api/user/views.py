@@ -8,6 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, logout
 import random
 import re
+from rest_framework.authtoken.models import Token
+from rest_framework.authentication import TokenAuthentication
 # Create your views here.
 
 
@@ -50,12 +52,12 @@ def signin(request):
                     'error': 'Previous Session Exists'
                 })
 
-            token = generate_session_token()
-            user.session_token = token
+            token, created = Token.objects.get_or_create(user=user)
+            user.session_token = token.key
             user.save()
             login(request, user)
             return JsonResponse({
-                'token': token,
+                'token': token.key,
                 'user': usr_dict
             })
         else:
