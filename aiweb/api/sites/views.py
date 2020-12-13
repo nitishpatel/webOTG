@@ -10,6 +10,7 @@ from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from .createsite import createPortfolioSite
 from rest_framework.permissions import BasePermission, IsAuthenticatedOrReadOnly
+from .Website import WebsiteTemplate
 # Create your views here.
 class WebsiteViewSets(viewsets.ModelViewSet):
     queryset = Website.objects.all().order_by('url')
@@ -27,22 +28,21 @@ def createsite(request):
         })
     
     websiteurl = request.POST['websiteUrl']
-    print(websiteurl)
+    
     UserModel = get_user_model()
     try:
         sites = Website.objects.get(url=websiteurl)
     except Website.DoesNotExist:
         sites = None
     category = Category.objects.get(pk=request.POST['categoryid'])
-    print(sites)
     if sites:
         return JsonResponse({
             "error":"Website Url Already Exists"
         })
     try:
         user = UserModel.objects.get(pk=request.POST['userid'])
-        landingPage , navbarPage = createPortfolioSite()
-        site = Website(url = websiteurl,user=user,category=category,landing=landingPage,navbar=navbarPage)
+        website = WebsiteTemplate(cid=request.POST['categoryid'])
+        site = Website(url = websiteurl,user=user,category=category,landing=website.landing(),navbar=website.navbar(),aboutpage=website.about(),project=website.project(),social=website.social())
         site.save()
         return JsonResponse({
             "success":"Site created successfully"

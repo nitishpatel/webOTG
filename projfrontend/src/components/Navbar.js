@@ -8,7 +8,7 @@ const NavbarOne = ({ navbarcolor }) => {
       style={{ backgroundColor: `${navbarcolor}` }}
       className="navbar navbar-expand-lg navbar-dark"
     >
-      <a className="navbar-brand">Navbar</a>
+      <a href="/" className="navbar-brand">Navbar</a>
       <button
         className="navbar-toggler"
         type="button"
@@ -23,20 +23,19 @@ const NavbarOne = ({ navbarcolor }) => {
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link">
+            <a className="nav-link" href="/">
               Home <span className="sr-only">(current)</span>
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link">Features</a>
+          <li className="nav-item" >
+            <a href="/" className="nav-link">Features</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link">Pricing</a>
+            <a href="/" className="nav-link">Pricing</a>
           </li>
           <li className="nav-item dropdown">
-            <a
+            <a href="/"
               className="nav-link dropdown-toggle"
-              href="http://example.com"
               id="navbarDropdownMenuLink"
               data-toggle="dropdown"
               aria-haspopup="true"
@@ -48,9 +47,9 @@ const NavbarOne = ({ navbarcolor }) => {
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              <a className="dropdown-item">Action</a>
-              <a className="dropdown-item">Another action</a>
-              <a className="dropdown-item">Something else here</a>
+              <a href="/" className="dropdown-item">Action</a>
+              <a href="/"  className="dropdown-item">Another action</a>
+              <a href="/" className="dropdown-item">Something else here</a>
             </div>
           </li>
         </ul>
@@ -65,7 +64,7 @@ const NavbarTwo = ({ navbarcolor }) => {
       className="navbar navbar-expand-lg navbar-dark "
       style={{ backgroundColor: `${navbarcolor}` }}
     >
-      <a className="navbar-brand">Fixed navbar</a>
+      <a href="/" className="navbar-brand">Fixed navbar</a>
       <button
         className="navbar-toggler"
         type="button"
@@ -80,15 +79,15 @@ const NavbarTwo = ({ navbarcolor }) => {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link">
+            <a href="/" className="nav-link">
               Home <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link">Link</a>
+            <a href="/" className="nav-link">Link</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled">Disabled</a>
+            <a href="/" className="nav-link disabled">Disabled</a>
           </li>
         </ul>
         

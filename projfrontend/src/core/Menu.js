@@ -25,7 +25,7 @@ const Menu = ({ history }) => (
                     <Link style={currentTab(history, "/")} to="/" className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item ">
-                    <Link style={currentTab(history, "/components")} to="/components" className="nav-link">Components</Link>
+                    <Link style={currentTab(history, "/contact")} to="/contact" className="nav-link">Contact us</Link>
                 </li>
                 {isAuthenticated()  && (
                     <li className="nav-item ">
@@ -45,13 +45,13 @@ const Menu = ({ history }) => (
                 )}
                 {isAuthenticated() && (
                     <li className="nav-item ">
-                        <a  className="nav-link text-warning" onClick={() => {
+                        <span  className="nav-link text-warning" onClick={() => {
                             signout(() => {
                                 history.push("/")
                             })
                         }}>
                             Signout
-                        </a>
+                        </span>
                     </li>
                 )}
                 

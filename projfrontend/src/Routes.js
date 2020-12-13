@@ -14,6 +14,7 @@ import CreateSite from "./website/CreateSite";
 import NotFound from "./components/NotFound";
 import Site from './website/Site'
 import UpdateSite from './website/UpdateSite'
+import Contact from "./core/Contact";
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
         <Route path="/signup" exact component={Signup} />
         <Route path="/components" exact component={Components} />
         <Route path="/site" exact component={Site} />
+        <Route path="/contact" exact component={Contact} />
         <Route path="/components/navbar" exact component={Navbar} />
         <Route path="/components/landing" exact component={LandingPage} />
         <Route path="/notfound" exact component={NotFound} />

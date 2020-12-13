@@ -7,3 +7,15 @@ export const getUserWebsite = (userid)=>{
     .then(data=>data.json())
     .catch(err=>console.log(err))
 }
+export const deleteUserWebsite = (id,token)=>{
+    return fetch(`${API}sites/${id}/`,{
+        method:"DELETE",
+        headers:{
+
+            Authorization: `Token ${token}`
+            
+        },     
+    })
+    .then(data=>data.json())
+    .catch(err=>console.log(err))
+}

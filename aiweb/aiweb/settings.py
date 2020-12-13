@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'api.user',
     'api.category',
     'api.sites',
+    'api.components',
 ]
 
 MIDDLEWARE = [
